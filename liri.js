@@ -8,27 +8,50 @@ const spotify = new Spotify(keys.spotify);
 
 const getSpotify = function (songName) {
 
-    spotify.search({ type: "track", query: songName }, function (err, data) {
-        if (err) {
-            return console.log("Error: " + err);
-        }
+    if (!songName) {
+        spotify.search({ type: "track", query: "the-sign" }, function (err, data) {
+            if (err) {
+                return console.log("Error: " + err);
+            }
 
-        let songs = data.tracks.items;
+            let songs = data.tracks.items;
 
-        let getArtists = function (artist) {
-            return artist.name;
-        }
+            let getArtists = function (artist) {
+                return artist.name;
+            }
 
-        for (var i = 0; i < songs.length; i++) {
-            console.log(i);
-            console.log("Artist(s): " + songs[i].album.artists.map(getArtists));
-            console.log("Song Title: " + songs[i].name);
-            console.log("Preview link: " + songs[i].preview_url);
-            console.log("Album Name: " + songs[i].album.name);
-            console.log("-------------------------------");
-        }
-    });
+            for (var i = 0; i < songs.length; i++) {
+                console.log(i);
+                console.log("Artist(s): " + songs[i].album.artists.map(getArtists));
+                console.log("Song Title: " + songs[i].name);
+                console.log("Preview link: " + songs[i].preview_url);
+                console.log("Album Name: " + songs[i].album.name);
+                console.log("-------------------------------");
+            }
+        });
+    }
+    else {
+        spotify.search({ type: "track", query: songName }, function (err, data) {
+            if (err) {
+                return console.log("Error: " + err);
+            }
 
+            let songs = data.tracks.items;
+
+            let getArtists = function (artist) {
+                return artist.name;
+            }
+
+            for (var i = 0; i < songs.length; i++) {
+                console.log(i);
+                console.log("Artist(s): " + songs[i].album.artists.map(getArtists));
+                console.log("Song Title: " + songs[i].name);
+                console.log("Preview link: " + songs[i].preview_url);
+                console.log("Album Name: " + songs[i].album.name);
+                console.log("-------------------------------");
+            }
+        });
+    }
 };
 
 const getConcert = function (artistName) {
