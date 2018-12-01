@@ -29,7 +29,7 @@ Run the following code:
 
 Here's what it would look like:
 
-![Preview](/images/concert-this.png)
+![Preview](/images/concert-this.PNG)
 
 ### Find information about a movie:
 
@@ -37,7 +37,7 @@ Here's what it would look like:
 
 Here's what it would look like:
 
-![Preview](/images/movie-this.png)
+![Preview](/images/movie-this.PNG)
 
 ### Find information about a song:
 
@@ -45,7 +45,7 @@ Here's what it would look like:
 
 Here's what it would look like:
 
-![Preview](/images/spotify-this-song.png)
+![Preview](/images/spotify-this-song.PNG)
 
 ### Run the random.txt file:
 
@@ -53,6 +53,6 @@ Here's what it would look like:
 
 Here's what it would look like:
 
-![Preview](/images/do-what-it-says.png)
+![Preview](/images/do-what-it-says.PNG)
 
 You can edit the file to run any of the three types of commands above to get information about a movie, artist's events, or song.
