@@ -42,12 +42,20 @@ const getConcert = function (artistName) {
         }
 
         let eventsObject = JSON.parse(data);
+        
+
+        //let eventDate = moment(eventsObject[i].datetime).format("MM/DD/YYYY");
 
         for (var i = 0; i < eventsObject.length; i++) {
             console.log(i);
             console.log("Venue: " + eventsObject[i].venue.name);
             console.log("Location: " + eventsObject[i].venue.city + ", " + eventsObject[i].venue.country);
-            console.log("Event Date: " + eventsObject[i].datetime);
+
+            let date = eventsObject[i].datetime;
+            let substr = date.substring(0,10);
+            let formatedDate = moment(substr, "YYYY-MM-DD").format("MM/DD/YYYY");
+
+            console.log("Event Date: " + formatedDate);
             console.log("-------------------------------");
 
         }
