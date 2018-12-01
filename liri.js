@@ -42,7 +42,7 @@ const getConcert = function (artistName) {
         }
 
         let eventsObject = JSON.parse(data);
-        
+
 
         //let eventDate = moment(eventsObject[i].datetime).format("MM/DD/YYYY");
 
@@ -52,7 +52,7 @@ const getConcert = function (artistName) {
             console.log("Location: " + eventsObject[i].venue.city + ", " + eventsObject[i].venue.country);
 
             let date = eventsObject[i].datetime;
-            let substr = date.substring(0,10);
+            let substr = date.substring(0, 10);
             let formatedDate = moment(substr, "YYYY-MM-DD").format("MM/DD/YYYY");
 
             console.log("Event Date: " + formatedDate);
@@ -64,27 +64,54 @@ const getConcert = function (artistName) {
 
 const getMovie = function (movieName) {
 
-    request("http://www.omdbapi.com/?apikey=trilogy&t=" + movieName, function (err, response, data) {
+    if (!movieName) {
 
-        if (err) {
-            return console.log("Error: " + err);
-        }
+        request("http://www.omdbapi.com/?apikey=trilogy&t=mr-nobody", function (err, response, data) {
 
-        else if (response.statusCode !== 200) {
-            console.log("Status code: " + response && response.statusCode);
-        }
+            if (err) {
+                return console.log("Error: " + err);
+            }
 
-        let movObject = JSON.parse(data);
+            else if (response.statusCode !== 200) {
+                console.log("Status code: " + response && response.statusCode);
+            }
 
-        console.log("Title: " + movObject.Title);
-        console.log("Year Released: " + movObject.Year);
-        console.log("IMBD Rating: " + movObject.Rated);
-        console.log("Rotten Tomatoes Rating: " + movObject.Ratings[1].Value);
-        console.log("Produced in: " + movObject.Country);
-        console.log("Language: " + movObject.Language);
-        console.log("Plot: " + movObject.Plot);
-        console.log("Actors: " + movObject.Actors);
-    });
+            let movObject = JSON.parse(data);
+
+            console.log("Title: " + movObject.Title);
+            console.log("Year Released: " + movObject.Year);
+            console.log("IMBD Rating: " + movObject.Rated);
+            console.log("Rotten Tomatoes Rating: " + movObject.Ratings[1].Value);
+            console.log("Produced in: " + movObject.Country);
+            console.log("Language: " + movObject.Language);
+            console.log("Plot: " + movObject.Plot);
+            console.log("Actors: " + movObject.Actors);
+        });
+
+    }
+    else {
+        request("http://www.omdbapi.com/?apikey=trilogy&t=" + movieName, function (err, response, data) {
+
+            if (err) {
+                return console.log("Error: " + err);
+            }
+
+            else if (response.statusCode !== 200) {
+                console.log("Status code: " + response && response.statusCode);
+            }
+
+            let movObject = JSON.parse(data);
+
+            console.log("Title: " + movObject.Title);
+            console.log("Year Released: " + movObject.Year);
+            console.log("IMBD Rating: " + movObject.Rated);
+            console.log("Rotten Tomatoes Rating: " + movObject.Ratings[1].Value);
+            console.log("Produced in: " + movObject.Country);
+            console.log("Language: " + movObject.Language);
+            console.log("Plot: " + movObject.Plot);
+            console.log("Actors: " + movObject.Actors);
+        });
+    }
 
 };
 

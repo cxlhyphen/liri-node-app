@@ -2,14 +2,14 @@
 
 Liri stands for "Language Interpretation and Recognition Interface". It is a command line node app.
 
-Use LIRI to find events for a certain artist, information about a movie, information about a music track, or run its random.tx file.
+Use LIRI to find events for a certain artist, information about a movie, information about a music track, or run its random.txt file.
 
 ## How to Install
 
 * Download the app onto your computer.
 * Run `npm install`
 * Register for a Spotify API key at: https://developer.spotify.com/my-applications/#!/
-* Generate a client id and a client secret id
+* Generate a **client id** and a **client secret id**
 * Create a `.env` file and add the following to it:
 ```
 # Spotify API keys
